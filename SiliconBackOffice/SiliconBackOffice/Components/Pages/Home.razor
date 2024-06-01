@@ -1,0 +1,68 @@
+﻿@page "/"
+
+<PageTitle>Silicon BackOffice</PageTitle>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <img src="images/logo.png" alt="Silicon Logo" class="mb-4 logo" />
+        <h1>Welcome to Silicon BackOffice</h1>
+        <p class="lead">Backoffice system for moderating courses, users, and more.</p>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Manage Courses</h5>
+                    <p class="card-text">Create, update, and delete courses with ease.</p>
+                    <a href="/courses" class="btn btn-primary">Go to Courses</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Manage Users</h5>
+                    <p class="card-text">Oversee user registrations, roles, and activities.</p>
+                    <a href="/users" class="btn btn-primary">Go to Users</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Settings</h5>
+                    <p class="card-text">Adjust system settings and preferences.</p>
+                    <a href="/settings" class="btn btn-primary">Go to Settings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 1000px;
+    }
+
+    .mt-5 {
+        margin-top: 3rem;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+
+    .card {
+        margin-top: 20px;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+</style>

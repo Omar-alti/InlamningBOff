@@ -1,0 +1,67 @@
+﻿@page "/Users"
+@attribute [StreamRendering]
+
+<PageTitle>Users</PageTitle>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>User Management</h1>
+        <p class="lead">Manage user accounts, roles, and permissions.</p>
+    </div>
+
+    <table class="table table-hover mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in users)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.Username</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" @onclick="() => AssignRole(user)">Assign Role</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteUser(user)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private List<User> users = new List<User>
+    {
+        new User { Id = 1, Username = "Jesper", Email = "Jesper@domain.com", Role = "Admin" },
+        new User { Id = 2, Username = "Alex", Email = "Alex@domain.com", Role = "User" },
+        new User { Id = 2, Username = "Oliver", Email = "Oliver@domain.com", Role = "Moderator" },
+
+    };
+
+    private void AssignRole(User user)
+    {
+
+    }
+
+    private void DeleteUser(User user)
+    {
+
+        users.Remove(user);
+    }
+
+    private class User
+    {
+        public int Id { get; set; }
+        public string? Username { get; set; }
+        public string? Email { get; set; }
+        public string? Role { get; set; }
+    }
+}

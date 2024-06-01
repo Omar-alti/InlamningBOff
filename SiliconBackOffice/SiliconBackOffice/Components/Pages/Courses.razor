@@ -1,0 +1,66 @@
+﻿@page "/courses"
+@attribute [StreamRendering]
+
+<PageTitle>Courses</PageTitle>
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Courses Management</h1>
+        <p class="lead">Manage courses, descriptions, content, and categories.</p>
+    </div>
+
+    <table class="table table-hover mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Course Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var course in courses)
+            {
+                <tr>
+                    <td>@course.Id</td>
+                    <td>@course.CourseName</td>
+                    <td>@course.Description</td>
+                    <td>@course.Category</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" @onclick="() => EditCourse(course)">Edit</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => DeleteCourse(course)">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private List<Course> courses = new List<Course>
+    {
+        new Course { Id = 1, CourseName = "Python 1", Description = "Take your first step into programming", Category = "Programming" },
+        new Course { Id = 2, CourseName = "Assembly", Description = "Assembly made easy", Category = "Programming" }
+
+    };
+
+    private void EditCourse(Course course)
+    {
+
+    }
+
+    private void DeleteCourse(Course course)
+    {
+
+        courses.Remove(course);
+    }
+
+    private class Course
+    {
+        public int Id { get; set; }
+        public string? CourseName { get; set; }
+        public string? Description { get; set; }
+        public string? Category { get; set; }
+    }
+}
